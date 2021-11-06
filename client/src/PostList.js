@@ -11,7 +11,7 @@ const PostList = () => {
     }, []);
 
     const fetchPosts = async () => {
-        const res = await axios.get(`${process.env.REACT_APP_POSTS_API_DOMAIN}/posts`);
+        const res = await axios.get(`${process.env.REACT_APP_QUERY_SERVICE_DOMAIN}/posts`);
 
         setPosts(res.data);
     };
@@ -24,7 +24,7 @@ const PostList = () => {
         >
             <div className="card-body">
                 <h3>{post.title}</h3>
-                <CommentList postId={post.id} />
+                <CommentList comments={post.comments} />
                 <CommentCreate postId={post.id} />
             </div>
         </div>
